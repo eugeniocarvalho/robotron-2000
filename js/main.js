@@ -39,6 +39,7 @@ controle.forEach(elemento => {
     const controle = evento.target.parentNode.querySelector('[data-contador');
 
     manipulaDados(evento.target.dataset.controle, controle);
+
     atualizaEstatisticas(evento.target.dataset.peca, evento.target.dataset.controle);
   });
 });
@@ -52,14 +53,12 @@ function manipulaDados(operacao, controle) {
 }
 
 function atualizaEstatisticas(peca, operacao) {
-  if(operacao === "+") {
-    estatisticas.forEach( (elemento) => {
+  if (operacao === "+") {
+    estatisticas.forEach((elemento) => {
       elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica];
-      console.log('+')
     })
   } else {
-    estatisticas.forEach( (elemento) => {
-      console.log('-')
+    estatisticas.forEach((elemento) => {
       elemento.textContent = parseInt(elemento.textContent) - pecas[peca][elemento.dataset.estatistica];
     })
   }
